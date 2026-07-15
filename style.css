@@ -1,0 +1,182 @@
+/*aa*/
+body {
+ background-image: url("images/a2bgimage.png");
+  background-repeat: no-repeat;
+  /* prevents bg repeat from image rule and also give image sticky propetry*/
+  background-attachment: fixed;
+ background-size: cover;
+ background-color: rgba(255, 216, 242, 0.4);
+text-align: center;
+  display: flex;  
+  flex-wrap: wrap;
+  font-family: "Lucida Handwriting", cursive;
+}
+#navBar{
+    margin-top: 600px;
+    flex: 100%;
+    box-sizing: border-box;
+   align-content:center;
+   text-shadow: 2px 2px rgba(4, 3, 54, 0.8);
+color: #dda7e6;
+font-size: 60px;
+}
+#navBar span {
+    color: #ffedfd;
+}
+#writingPart {
+    width: 100%;
+    background-color: rgba(255, 216, 242, 1);
+border: 4px double #695c5f;
+    flex: 100%;
+}
+.divRight {
+text-align: right;
+}
+.divLeft {
+text-align: left;
+}
+.floatLeft {
+float: left;
+margin-left: 20px;
+margin-top: 60px;
+border: 1px solid #2e0a13;
+}
+.floatRight {
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+border: 1px solid #2e0a13;
+}
+#HomePageP1 {
+margin-right: 30px;
+ display: flex;  
+flex-wrap: wrap;
+}
+#HomePageP2 {
+margin-left: 30px;
+ display: flex;  
+flex-wrap: wrap;
+}
+#image2 {
+flex: 3;
+}
+#text2 {
+flex: 4;
+margin-left: 30px
+}
+#image1 {
+flex: 3;
+}
+#text1 {
+flex: 4;
+}
+p {
+    font-size: 20px;
+}
+.subtext {
+    font-size: 12px;
+
+}
+.pageHeader {
+    font-size: 70px;
+    font-family: "Lucida Handwriting", cursive;
+}
+#imageA {
+    z-index: 0;
+    position: relative;
+    transition: opacity 1s;
+}
+#imageA.grow {
+    opacity: 0.3;
+}
+#imageB {
+    z-index: 0;
+    position: relative;
+    transition: opacity 1s;
+}
+#imageB.grow {
+    opacity: 0.3;
+}
+
+#hiddenText1 {
+    display: none;
+    background-color: aliceblue;
+    z-index: 2;
+    width: 95%;
+    height: 400px;
+    position: absolute;
+    margin-top: 25px;
+    margin-left: 5px;
+border: 3px solid #480047;
+}
+#hiddenText2 {
+    display: none;
+    background-color: aliceblue;
+    z-index: 2;
+    width: 95%;
+    height: 300px;
+    position: absolute;
+    margin-top: 0px;
+    margin-left: 30px;
+border: 3px solid #480047;
+}
+.hidTextRight {
+    margin-right: 20px;
+}
+.hidTextLeft {
+    margin-left: 20px;
+}
+h1 {
+    font-family: "Brush Script MT", cursive;
+font-size: 40px;
+}
+#clickboxcontinue {
+    margin-top: 200px;
+    color: rgb(252, 194, 228);
+}
+
+
+#shadowFilter {
+    /*not using inset because i want the borders to still 
+    have full opacity*/
+    background-color: rgb(28, 0, 29, 0.6);
+    z-index: 1;
+    position:fixed;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+}
+/*Additional hardcoding for smoother transitioning*/
+
+@media (max-width: 1000px) {
+    .floatLeft {
+        margin-top: 130px
+    }
+}
+
+/*tablet Size*/
+
+@media (max-width: 800px) {
+.floatLeft {
+    float: none;
+}
+.floatRight {
+    float: none;
+}
+.divRight {
+text-align: center;
+}
+.divLeft {
+text-align: center;
+}
+#HomePageP1 {
+display: block;
+}
+
+#hiddenText1 {
+    display: block;
+    z-index: 0;
+    position:relative;
+    margin-left: 20px;
+    text-align: center;
+}}
