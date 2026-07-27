@@ -11,6 +11,92 @@ text-align: center;
   flex-wrap: wrap;
   font-family: "Lucida Handwriting", cursive;
 }
+
+/* sprites */
+.spriteProperties {
+    position:absolute;
+    z-index: 5;
+}
+#playBtn {
+	background: url('images/minigameSprites.png') no-repeat 0 0;
+	width: 201px;
+	height: 200px;
+   top:50%;
+   left: 35%;
+}
+#playBtn.picked {
+filter: brightness(50%);
+margin-top: 5px;
+}
+
+#brightMode {
+	background: url('images/minigameSprites.png') no-repeat -207px 0;
+	width: 193px;
+	height: 86px;
+    top:30%;
+    left: 50%;
+}
+#brightMode.picked {
+filter: brightness(25%);
+margin-top: 5px;
+}
+#darkMode {
+	background: url('images/minigameSprites.png') no-repeat -206px -113px;
+	width: 194px;
+	height: 87px;
+    top:30%;
+    right: 60%;
+}
+#darkmode.picked {
+filter: brightness(25%);
+margin-top: 5px;
+}
+#darkModeWarning {
+    z-index: 7;
+    position:relative;
+    top: 15%;
+    left: 8%;
+    width: 80%;
+    height: 300px;
+    display: none;
+    background-color: aliceblue;
+}
+
+
+.marginFrom {
+    overflow: scroll;
+    margin-top: 220px;
+    width: 100%;
+     text-align:center;
+    align-content: center;
+    align-items: center;
+    height: 250px;
+}
+.marginTo {
+    overflow: scroll;
+    margin-top: 220px;
+    width: 100%;
+     text-align:center;
+    align-content: center;
+    align-items: center;
+    height: 250px;
+}
+.marginOther {
+    overflow: scroll;
+    text-align:left;
+    align-content: left;
+    align-items: left;
+    margin-left: 5px;
+    width: 55%;
+    height: 250px;
+}
+.marginOtherDir {
+    overflow: scroll;
+    width: 55%;
+    justify-content: right;
+    margin-left: 225px;
+    height: 250px;
+}
 #navBar{
     margin-top: 600px;
     flex: 100%;
@@ -19,15 +105,70 @@ text-align: center;
    text-shadow: 2px 2px rgba(4, 3, 54, 0.8);
 color: #dda7e6;
 font-size: 60px;
+height: 250px;
 }
 #navBar span {
     color: #ffedfd;
+}
+#homeBtn:hover {
+transition: all 1s;
+}
+#homeBtn.upwards {
+margin-top: -10px;
+color: rgb(247, 176, 250);
+}
+#feltbtn:hover {
+transition: all 1s;
+}
+#feltbtn.upwards {
+   margin-top: -10px;
+color: rgb(247, 176, 250);
+}
+#guideBtn:hover {
+transition: all 1s;
+}
+#guideBtn.upwards {
+margin-top: -10px;
+color: rgb(247, 176, 250);
+}
+#miniBtn:hover {
+transition: all 1s;
+}
+#minibtn.upwards {
+margin-top: -10px;
+color: rgb(247, 176, 250);
+}
+#imageBar {
+display: flex;
+flex-wrap: wrap;
+}
+#needleImage {
+    flex: 1;
+}
+#needleImage.grow {
+    filter:brightness(75%);
+    margin-top: 5px;
+}
+#boardImage {
+    flex: 1;
+}
+#boardImage.grow {
+    filter:brightness(75%);
+    margin-top: 5px;
+}
+#feltImage {
+    flex: 1;
+}
+#feltImage.grow {
+    filter:brightness(75%);
+    margin-top: 5px;
 }
 #writingPart {
     width: 100%;
     background-color: rgba(255, 216, 242, 1);
 border: 4px double #695c5f;
     flex: 100%;
+    padding-bottom: 200px;
 }
 .divRight {
 text-align: right;
@@ -47,6 +188,16 @@ border: 1px solid #2e0a13;
     margin-top: 20px;
 border: 1px solid #2e0a13;
 }
+
+.homeHeader {
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgb(50, 3, 69);
+}
+.hiddenHeader {
+    color: rgb(99, 6, 99);
+}
+
+
 #HomePageP1 {
 margin-right: 30px;
  display: flex;  
@@ -56,6 +207,150 @@ flex-wrap: wrap;
 margin-left: 30px;
  display: flex;  
 flex-wrap: wrap;
+}
+#homePageP3 {
+clear: both;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-rows: 1fr 1fr ;
+    text-align:center;
+    align-content: center;
+    align-items: center;
+}
+
+#crochetPage {
+    grid-column: 1 / 2;
+    grid-row: 1/2;
+}
+#feltinPage {
+    grid-column: 3 / 4;
+    grid-row: 1/2;
+}
+#embroideryPage {
+    grid-column: 1 / 2;
+    grid-row: 2/3;
+}
+#knittingPage {
+    grid-column: 3 / 4;
+    grid-row: 2/3;
+    position:relative;
+}
+#imageC {
+  border-radius: 25px;
+  background-image: url(images/crochet.png);
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+border: 4px solid #73AD21;
+background-size: cover;
+margin-bottom: 20px;
+margin-left: 350px;
+  transition: all 1s;
+}
+#imageD {
+      border-radius: 25px;
+  background-image: url(images/felting.jpg);
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+border: 4px solid #73AD21;
+background-size: cover;
+margin-bottom: 20px;
+margin-left: -200px;
+  transition: all 1s;
+}
+#imageE {
+      border-radius: 25px;
+  background-image: url(images/embroidery.png);
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+border: 4px solid #73AD21;
+background-size: cover;
+margin-bottom: 20px;
+margin-left: 350px;
+  transition: all 1s;
+}
+#imageF {
+      border-radius: 25px;
+  background-image: url(images/knitting.jpg);
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 200px;
+border: 4px solid #73AD21;
+background-size: cover;
+margin-bottom: 20px;
+margin-left: -200px;
+  transition: all 1s;
+}
+
+#imageC.grow {
+    opacity: 0.3;
+filter: drop-shadow(8px 8px 10px gray);
+margin-top: -20px;
+}
+#imageD.grow {
+    opacity: 0.3;
+filter: drop-shadow(8px 8px 10px gray);
+margin-top: -20px;
+}
+#imageE.grow {
+    opacity: 0.3;
+filter: drop-shadow(8px 8px 10px gray);
+margin-top: -20px;
+}
+#imageF.grow {
+    opacity: 0.3;
+filter: drop-shadow(8px 8px 10px gray);
+margin-top: -20px;
+}
+#hiddenText3 {
+    display: none;
+    background-color: aliceblue;
+    z-index: 2;
+    width: 300px;
+    height: 450px;
+    position: absolute;
+    margin-top: -250px;
+    margin-left: 300px;
+border: 3px solid #480047;
+}
+#hiddenText4 {
+    display: none;
+    background-color: aliceblue;
+    z-index: 2;
+    width: 300px;
+    height: 450px;
+    position: absolute;
+    margin-top: -250px;
+    margin-left: -250px;
+border: 3px solid #480047;
+}
+#hiddenText5 {
+    display: none;
+    background-color: aliceblue;
+    z-index: 2;
+    width: 500px;
+    height: 250px;
+    position: relative;
+    margin-top: -250px;
+    margin-left: 70px;
+border: 3px solid #480047;
+text-align: left;
+
+}
+#hiddenText6 {
+    display: none;
+    background-color: aliceblue;
+    z-index: 2;
+    width: 500px;
+    height: 250px;
+    position: relative;
+    margin-top: -250px;
+    margin-left: -220px;
+border: 3px solid #480047;
+text-align: left;
+
 }
 #image2 {
 flex: 3;
@@ -84,18 +379,23 @@ p {
 #imageA {
     z-index: 0;
     position: relative;
-    transition: opacity 1s;
+    margin-top: 30px;
+    transition: all 1s;
 }
 #imageA.grow {
     opacity: 0.3;
+filter: drop-shadow(8px 8px 10px gray);
+margin-top: 20px;
 }
 #imageB {
     z-index: 0;
     position: relative;
-    transition: opacity 1s;
+    transition: all 1s;
 }
 #imageB.grow {
     opacity: 0.3;
+    filter: drop-shadow(8px 8px 10px gray);
+    margin-top: 2px;
 }
 
 #hiddenText1 {
@@ -105,9 +405,10 @@ p {
     width: 95%;
     height: 400px;
     position: absolute;
-    margin-top: 25px;
+    margin-top: 5px;
     margin-left: 5px;
 border: 3px solid #480047;
+
 }
 #hiddenText2 {
     display: none;
@@ -127,15 +428,124 @@ border: 3px solid #480047;
     margin-left: 20px;
 }
 h1 {
-    font-family: "Brush Script MT", cursive;
+    font-family: "Courier New", monospace;
 font-size: 40px;
 }
 #clickboxcontinue {
     margin-top: 200px;
     color: rgb(252, 194, 228);
 }
+@keyframes rainbowWool {
+    12.5% {filter: hue-rotate(45deg);}
+    25% {filter: hue-rotate(90deg)}
+    37.5% {filter: hue-rotate(135deg)}
+50% {filter: hue-rotate(180deg)}
+62.5% {filter: hue-rotate(225deg)}
+75% {filter: hue-rotate(270deg)}
+87.5% {filter: hue-rotate(315deg)}
+100% {filter: hue-rotate(360deg)}
+}
 
+.isWool {
+z-index: 3;
+position: absolute;
+justify-content: center;
+align-items: center;
+}
 
+.isRainbowWool {
+    z-index: 3;
+    position: absolute;
+    animation-name: rainbowWool;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+.isWhiteOutlineWool {
+z-index: 2;
+filter: brightness(166%);
+}
+.isBlackOutlineWool {
+z-index: 1;
+filter: brightness(0%);
+scale: 1.25;
+}
+#playingArea {
+    text-align: center;
+    height: 500px;
+    width: 90%;
+    border: 10px solid rgb(94, 45, 23);
+    margin-top: 80px;
+    margin-left: 40px;
+    background-image: url("images/minigameBackground.jpg");
+      background-repeat: no-repeat; 
+  background-size: cover;
+    position:relative;
+
+}
+
+#gameTable {
+    display: absolute;
+    margin-top: 205px;
+    margin-right: 55%;
+}
+#scoreBox {
+    width: 10%;
+    height: 50px;
+    background-color: black;
+    z-index: 4;
+    position: absolute;
+    color: white;
+    font-size: 30px;
+    display:none;
+}
+#Timer {
+    top: 0;
+    right: 0;
+    width: 10%;
+    height: 50px;
+    background-color: black;
+    z-index: 4;
+    position: absolute;
+    color: white;
+    font-size: 30px;
+    display: none;
+}
+#finishButton {
+    color: white;
+    text-shadow: 2px 2px black;
+    z-index: 8;
+      position: absolute;
+      font-size: 60px;
+      top: 75%;
+      left: 75%;
+      display:none;
+}
+#finishButton.picked {
+color:rgb(119, 129, 160);
+margin-top: 5px;
+}
+#stupidRedCircle {
+   border: 4px solid red ;
+   background-color: rgba(0, 0, 0, 0.5);
+   border-radius: 50%;
+    z-index: 8;
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      display:none;
+}
+#DarkFilter {
+    background-color: rgb(28, 0, 29, 0.6);
+  height: 100%;
+    width: 100%;
+    z-index: 2;
+    position: absolute;
+  
+}
+.hiddenDarkFilter {
+    display: none;
+}
 #shadowFilter {
     /*not using inset because i want the borders to still 
     have full opacity*/
@@ -146,14 +556,29 @@ font-size: 40px;
     width: 100vw;
     display: none;
 }
-/*Additional hardcoding for smoother transitioning*/
 
-@media (max-width: 1000px) {
-    .floatLeft {
-        margin-top: 130px
-    }
+#needleImage.hovered {
+filter: drop-shadow(8px 8px 10px gray);
+margin-top: -20px;
+}
+#boardImage.hovered {
+filter: drop-shadow(8px 8px 10px gray);
+margin-top: -20px;
+}
+#feltImage.hovered {
+filter: drop-shadow(8px 8px 10px gray);
+margin-top: -20px;
 }
 
+#needleImage.clicked {
+      filter: brightness(47%) drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.6));
+}
+#boardImage.clicked {
+      filter: brightness(47%) drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.6));
+}
+#feltImage.clicked {
+      filter: brightness(47%) drop-shadow(8px 8px 10px rgba(0, 0, 0, 0.6));
+}
 /*tablet Size*/
 
 @media (max-width: 800px) {
@@ -172,11 +597,28 @@ text-align: center;
 #HomePageP1 {
 display: block;
 }
+#homePageP3 {
+    display:block;
+}
 
 #hiddenText1 {
     display: block;
     z-index: 0;
     position:relative;
-    margin-left: 20px;
     text-align: center;
-}}
+    font-size: 18px;
+    flex: 100%;
+    height: 700px;
+}
+#hiddenText2 {
+    display: block;
+    z-index: 0;
+    position:relative;
+    text-align: center;
+    font-size: 18px;
+    flex: 100%;
+    height: 700px;
+}
+
+}
+
