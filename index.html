@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <title>Fiber Art</title>
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
+    <link rel="manifest" href="manifest.json" />
 </head>
 <body>
      <div id="shadowFilter"><p id="clickboxcontinue">- Click the Box to continue.-</p></div>
@@ -288,9 +293,36 @@ expect a sword out of felt for example.
 <input type="radio" name="q2" value="false"> A needle and a Felting board<br>
 <input type="radio" name="q2" value="false"> Two felting Needles<br>
 </fieldset>
-
+<fieldset>
+<legend>3. How to properly hold a felting needle?</legend>
+<input type="radio" name="q3" value="false"> Near the Tip, like a pencil <br>
+<input type="radio" name="q3" value="false"> Wrap hand around, like a stabbing knife<br>
+<input type="radio" name="q3" value="true"> With our first three fingers<br>
+<input type="radio" name="q3" value="true"> At the edge, like holding a pin<br>
+</fieldset>
+<fieldset>
+<legend>4. </legend>
+<input type="radio" name="q4" value="false"> Near the Tip, like a pencil <br>
+<input type="radio" name="q4" value="false"> Wrap hand around, like a stabbing knife<br>
+<input type="radio" name="q4" value="false"> With our first three fingers<br>
+<input type="radio" name="q4" value="false"> At the edge, like holding a pin<br>
+</fieldset>
 </div>
 </section>
 </main>
+<footer id="foobar">
+<div id="textPart">
+<h1>Ready to Explore More Types of Art? Sign Up Today!</h1>
+ <!-- remember to reset fields to "simulate" sending when nothing actuyally happens-->
+<input id="aField" type="text" placeholder="Enter Name"> ||
+<input id="bField" type="email" placeholder="Enter Email">
+<button id="fakeSubmit">SUBMIT</button>
+</div>
+<div id = "qrCodediv">
+v Scan the below to open the Mobile Web App v
+<img src="images/qrCode.png" width = "150">
+</div>
+<div id="credits"> Music Used: Vivid/Stasis || Icon Made By: _BLZ_</div>
+</footer>
 </body>
 </html>

@@ -11,6 +11,8 @@ const miniBtn = document.querySelector("#miniBtn");
 const allPages = document.querySelectorAll(".isPage");
 const allNavBar = document.querySelectorAll("#navBar span");
 const playArea = document.querySelector("#playingArea");
+const footer = document.querySelector("#foobar");
+let lastTopScroll = 0;
 
 const spritePlay = document.querySelector("#playBtn");
 const brightMode = document.querySelector("#brightMode");
@@ -23,9 +25,13 @@ const gameInstruct = document.querySelector("#gameInstructions");
 const cursorClick = document.querySelector("#stupidRedCircle");
 const Timer = document.querySelector("#Timer");
 const playMusic = new Audio("audio/gameTheme.mp3"); //credit to v/s
+const ruffleSound = new Audio("audio/ruffle.mp3");
+const clickSound = new Audio("audio/clickPop.mp3");
+const woolGrab = new Audio("audio/woolGrab.mp3");
 playMusic.volume = 0.7;
 playMusic.loop = true;
-
+clickSound.volume = 0.5;
+woolGrab.volume = 0.5;
 const feltPages = document.querySelectorAll(".iAmFelt");
 const feltImages = document.querySelectorAll(".iAmFeltIMG");
 const needlePage = document.querySelector("#feltNeedle");
@@ -36,6 +42,7 @@ const boardImage = document.querySelector("#boardImage");
 const feltImage = document.querySelector("#feltImage");
 let currentWoolGrabbed = 0; // 0 - 123
 let feltPageOn = 1; // 123, defaults 1
+let submittedEmail = false;
 //animation1 in home image
 const images = [ // put homeImage1, homeImage2 etc all here
 document.querySelector("#imageA"),
@@ -102,7 +109,9 @@ let elapsedTime = 0;
 homeBtn.style.color="#835db9";
 createInitialMiniGameUI();
 brightMode.classList.add("picked");
-showFeltPage(needlePage, needleImage);
+resetFeltingIconState();
+resetFeltingPageState();
+showFeltPage(needlePage, needleImage, 1);
 // funcs here
 
 function toggleBlackCover() {
@@ -371,6 +380,7 @@ break;
 }
 document.querySelector("#" + refillableWoolID).addEventListener("click", 
 function() {
+    woolGrab.play();
     currentWoolGrabbed = i + 1;
     showCursor(i, hueType); // tells showcursor which wool coord it is
 }
@@ -479,6 +489,7 @@ if ((Math.abs(distanceX) < 1) && (Math.abs(distanceY) < 1)) { // distanceX updat
 isAnimationPlaying = false;
 elapsedFrames = 0;
 clearInterval(intervalFrame);
+ruffleSound.play();
 } else {
 isAnimationPlaying = true;
 //lets say i want the anim to be maximum, 1 second long thats 100 frames
@@ -652,7 +663,7 @@ break;
 imgSelector.addEventListener("click", function () {
 resetFeltingIconState();
 resetFeltingPageState();
-showFeltPage(selector, imgSelector, i);
+showFeltPage(selector, imgSelector, i+1);
 })
 }
 
@@ -760,7 +771,7 @@ break;
 numberOfWarningClicks = 2;
 break;
 }
-})
+}) 
 
 finishButton.addEventListener("mouseover", function () { // click off
 finishButton.classList.add("picked");
@@ -768,7 +779,15 @@ finishButton.classList.add("picked");
 finishButton.addEventListener("mouseout", function () { // click off
 finishButton.classList.remove("picked");
 })
-
+document.querySelector("#fakeSubmit").addEventListener("click", function () { 
+    if (submittedEmail == false) {
+document.querySelector("#bField").value = "";
+document.querySelector("#aField").value = "";
+document.querySelector("#fakeSubmit").style.backgroundColor = "#73AD21";
+document.querySelector("#fakeSubmit").innerHTML = "Successful!";
+submittedEmail = true;
+    }
+})
 //
 finishButton.addEventListener("click", function () { // click off
 // reset all current wools, implement score grant later
@@ -777,6 +796,7 @@ deleteColoredWools();
 cursorClick.style.display = "none";
 refillColoredWools();
 deleteWoolSockets();
+clickSound.play();
 for (let i = 0; i < 3; i++) {
 createWoolSocket(i);
     let transY = 10 + 150 * i;
@@ -798,3 +818,16 @@ storePoint = 0;
 scoreBox.innerHTML = Points +"!";
 }
 })
+
+window.addEventListener("scroll", function(){ 
+   var difference = window.pageYOffset || document.documentElement.scrollTop; 
+   if (difference > lastTopScroll) {
+      // downscroll, to remove static
+footer.style.position = "static";
+   } else if (difference < lastTopScroll) {
+      // upscroll
+footer.style.position = "sticky";
+   } 
+   lastTopScroll = Math.max(0, difference); // For Mobile or negative scrolling
+}, false);
+
