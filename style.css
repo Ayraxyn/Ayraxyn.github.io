@@ -57,6 +57,11 @@ margin-top: 15px;
    top:50%;
    left: 35%;
 }
+#quizButton {
+    width: 60%;
+    height: 60px;
+    font-size: 30px;
+}
 #playBtn.picked {
 filter: brightness(50%);
 margin-top: 5px;
@@ -649,9 +654,11 @@ display: block;
     z-index: 0;
     position:relative;
     text-align: center;
+    justify-items: center;
     font-size: 18px;
     flex: 100%;
     height: 700px;
+    width: 80%;
 }
 #hiddenText3 {
     display: block;
@@ -723,22 +730,37 @@ margin-top: 20px;
         margin: 0 0 0 -20px;
     position: absolute;
       float: right;
+      width: 150px;
+      height: 150px;
 }
 #imageD {
         margin: 0 0 0 -20px;
     position: absolute;
       float: right;
+        width: 150px;
+      height: 150px;
+
 }
 #imageE {
         margin: 0 0 0 -20px;
     position: absolute;
       float: right;
+        width: 150px;
+      height: 150px;
+
 }
 #imageF {
         margin: 0 0 0 -20px;
     position: absolute;
       float: right;
+        width: 150px;
+      height: 150px;
+
 }
+#smallerHeader {
+    font-size: 25px;
+}
+
 #Timer {
         font-size: 15px;
 }
@@ -754,6 +776,41 @@ margin-top: 20px;
         margin-top: 30px;
 }
 #qrCodediv {
+    display: none;
+}
+#navBar {
+    font-size: 40px;
+}
+.pageHeader {
+    font-size: 40px;
+}
+
+#needleImage {
+    flex: 100%;
+    margin-bottom: 30px;
+}
+#boardImage {
+    flex: 100%;
+     margin-bottom: 30px;
+}
+#feltImage {
+    flex: 100%;
+     margin-bottom: 30px;
+}
+#playingArea {
+    width: 80%;
+}
+#playBtn {
+    left: 20%;
+}
+#brightMode {
+left: 20%;
+top: 5%;
+}
+#darkMode {
+left: 20%;
+}
+#gameTable {
     display: none;
 }
 }

@@ -28,6 +28,8 @@ const playMusic = new Audio("audio/gameTheme.mp3"); //credit to v/s
 const ruffleSound = new Audio("audio/ruffle.mp3");
 const clickSound = new Audio("audio/clickPop.mp3");
 const woolGrab = new Audio("audio/woolGrab.mp3");
+const quizBtn = document.querySelector("#quizButton");
+const quizScore = document.querySelector("#quizScore");
 playMusic.volume = 0.7;
 playMusic.loop = true;
 clickSound.volume = 0.5;
@@ -43,6 +45,8 @@ const feltImage = document.querySelector("#feltImage");
 let currentWoolGrabbed = 0; // 0 - 123
 let feltPageOn = 1; // 123, defaults 1
 let submittedEmail = false;
+let hasDoneQuiz = false;
+let scoreofQuiz = 0;
 //animation1 in home image
 const images = [ // put homeImage1, homeImage2 etc all here
 document.querySelector("#imageA"),
@@ -98,6 +102,7 @@ let refilledWoolCoordX2 = 0;
 let refilledWoolCoordY2 = 0;
 let refilledWoolCoordX3 = 0;
 let refilledWoolCoordY3 = 0;
+let amtOfRounds = 0;
 // if doesnt work try outerHeight/outerWidth?
 let windowWidth = window.innerWidth;
 let windowHeight = window.innerHeight;
@@ -147,8 +152,8 @@ if (windowWidth > 800) {
 document.querySelector("#darkwoolCreate" +i).style.left = "850px";
 document.querySelector("#whitewoolCreate" +i).style.left = "850px";
 } else {
-    document.querySelector("#darkwoolCreate" +i).style.left = "450px";
-document.querySelector("#whitewoolCreate" +i).style.left = "450px";
+    document.querySelector("#darkwoolCreate" +i).style.left = "250px";
+document.querySelector("#whitewoolCreate" +i).style.left = "250px";
 }
 }
    // create random wools
@@ -458,7 +463,7 @@ let endPosX = 0;
 if (windowWidth > 800) {
 endPosX = 850;
 } else {
-endPosX = 450;
+endPosX = 250;
 }
 let grabbingThisWool = null;
 switch (woolGrabbed) {
@@ -524,6 +529,7 @@ grabbingThisWool.style.left = starPosX + "px";
 
 setInterval(function() {//interval function for timer 
 if (gameHasStarted === true) {
+    if (Points < 100) {
     elapsedTime = elapsedTime + 1 // 00:00:00 means 10 milliseconds, pressing finish resets timer
     secondNumber = Math.floor(elapsedTime / 6000); 
     secondsTimer = (elapsedTime / 100) % 60;
@@ -531,7 +537,7 @@ if (gameHasStarted === true) {
     militimer = elapsedTime % 100;
 sixthNumber = Math.floor(militimer);
 Timer.innerHTML = secondNumber +":"+ forthNumber +":"+ sixthNumber;
-}
+}}
 }, 10); 
 
 
@@ -643,6 +649,19 @@ showPage("#minigamePage"); // type page name here
 miniBtn.style.color="#835db9";
 })
 
+let qn = new Array(5); // makes a...new empty array of 5.
+quizBtn.addEventListener("click", function () {
+if (hasDoneQuiz == false) {
+for (let i=0; i < 5; i++) {
+    let addi = i+1;
+    let queryString = "input[name= 'q"+addi+"']:checked";
+qn[i]=document.querySelector(queryString).value;
+if(qn[i]=="true")scoreofQuiz++
+}
+quizScore.innerHTML = "SCORE:" +scoreofQuiz;
+hasDoneQuiz = true;
+}
+})
 for (let i = 0; i < 3; i++) {
 let selector = null;
 let imgSelector = null;
@@ -792,6 +811,12 @@ submittedEmail = true;
 finishButton.addEventListener("click", function () { // click off
 // reset all current wools, implement score grant later
 if (isAnimationPlaying == false) {
+if (elapsedTime < 300) {
+    console.log(elapsedTime);
+    storePoint = storePoint * 4;
+} else if (elapsedTime < 500) {
+    storePoint = storePoint * 2;
+}
 deleteColoredWools();
 cursorClick.style.display = "none";
 refillColoredWools();
@@ -807,15 +832,23 @@ if (windowWidth > 800) {
 document.querySelector("#darkwoolCreate" +i).style.left = "850px";
 document.querySelector("#whitewoolCreate" +i).style.left = "850px";
 } else {
-    document.querySelector("#darkwoolCreate" +i).style.left = "450px";
-document.querySelector("#whitewoolCreate" +i).style.left = "450px";
+    document.querySelector("#darkwoolCreate" +i).style.left = "250px";
+document.querySelector("#whitewoolCreate" +i).style.left = "250px";
 }
-
 }
+++amtOfRounds;
 elapsedTime = 0;
 Points = Points + storePoint;
 storePoint = 0;
+if (Points <= 100) {
 scoreBox.innerHTML = Points +"!";
+} else {
+    console.log(Points);
+    scoreBox.innerHTML = "YOU WIN!";
+    scoreBox.style.color = "#69ED31";
+    Timer.style.color = "#69ED31";
+Timer.innerHTML = amtOfRounds + "Taken";
+}
 }
 })
 
